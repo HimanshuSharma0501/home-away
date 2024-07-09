@@ -45,8 +45,28 @@ Style->NewYork
 BaseColor->Zinc
 CSS Variables->Yes
 
-##Install the Shadcn Components
+## Install the Shadcn Components
 
-`sh
+```sh
 npx shadcn-ui@latest add button
-`
+npx shadcn-ui@latest add breadcrumb calendar card checkbox dropdown-menu input label popover scroll-area select seperator table textarea toast
+```
+
+Create folder for shadcn Components
+components/ui
+components/card
+components/form
+components/home
+components/navbar
+components/properties
+
+### NavBar-Setup
+
+navbar/
+-DarkMode.tsx
+-LinksDropDown.tsx
+-Logo.tsx
+-NavBar.tsx
+-NavSearch.tsx
+-SignOut.tsx
+-UserIcon.tsx
