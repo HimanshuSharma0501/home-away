@@ -38,9 +38,15 @@ export default functionName;
 ## Install Shadcn UI
 
 ```sh
-
+npx shadcn-ui@latest
 ```
 
 Style->NewYork
 BaseColor->Zinc
 CSS Variables->Yes
+
+##Install the Shadcn Components
+
+`sh
+npx shadcn-ui@latest add button
+`
