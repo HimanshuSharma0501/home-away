@@ -138,3 +138,85 @@ export default function ModeToggle() {
 ```
 
 This would set up the button which can be used to switch between dark and light mode and system theme would be set as default
+
+### Links Data
+
+create utils/Links.tsx
+
+```tsx
+type NavLink = {
+  href: String;
+  label: String;
+};
+
+export const links: NavLink[] = [
+  { href: "/", label: "home" },
+  { href: "/favorites", label: "favorites" },
+  { href: "/bookings", label: "bookings" },
+  { href: "/reviews", label: "reviews" },
+  { href: "/rentals/create", label: "create rentals" },
+  { href: "/rentals", label: "rentals" },
+  { href: "/profile", label: "profile" },
+];
+```
+
+#### Links Dropdown component
+
+in file NavBar/LinksDropDown
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import { LuAlignLeft } from "react-icons/lu";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import UserIcon from "./UserIcon";
+import { links } from "@/app/utils/Links";
+import SignOut from "./SignOut";
+
+function LinksDropdown() {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" className="flex gap-4 max-w-[100px]">
+          <LuAlignLeft className="w-6 h-6" />
+          <UserIcon />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-52" align="start" sideOffset={10}>
+        {links.map((link) => {
+          return (
+            <DropdownMenuItem key={link.href}>
+              <Link href={link.href} className="capitalize w-full">
+                {link.label}
+              </Link>
+            </DropdownMenuItem>
+          );
+        })}
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <SignOut />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+export default LinksDropdown;
+```
+
+in file NavBar/UserIcon.tsx
+
+```tsx
+import React from "react";
+import { LuUser2 } from "react-icons/lu";
+function UserIcon() {
+  return <LuUser2 className="w-6 h-6 bg-primary rounded-full text-white" />;
+}
+
+export default UserIcon;
+```

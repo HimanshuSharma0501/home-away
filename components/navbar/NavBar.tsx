@@ -1,8 +1,8 @@
-import React from "react";
-import NavSearch from "./NavSearch";
-import LinksDropDown from "./LinksDropDown";
 import DarkMode from "./DarkMode";
+import LinksDropDown from "./LinksDropDown";
 import Logo from "./Logo";
+import NavSearch from "./NavSearch";
+
 function NavBar() {
   return (
     <nav className="border-b">
